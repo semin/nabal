@@ -1,4 +1,6 @@
 Nabal::Application.routes.draw do
+  resources :query_sequences
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

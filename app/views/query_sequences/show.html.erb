@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @query_sequence.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @query_sequence.description %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%= @query_sequence.sequence %>
+</p>
+
+
+<%= link_to 'Edit', edit_query_sequence_path(@query_sequence) %> |
+<%= link_to 'Back', query_sequences_path %>

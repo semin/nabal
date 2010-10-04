@@ -1,0 +1,27 @@
+<h1>Listing query_sequences</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Description</th>
+    <th>Sequence</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @query_sequences.each do |query_sequence| %>
+  <tr>
+    <td><%= query_sequence.code %></td>
+    <td><%= query_sequence.description %></td>
+    <td><%= query_sequence.sequence %></td>
+    <td><%= link_to 'Show', query_sequence %></td>
+    <td><%= link_to 'Edit', edit_query_sequence_path(query_sequence) %></td>
+    <td><%= link_to 'Destroy', query_sequence, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Query sequence', new_query_sequence_path %>

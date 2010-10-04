@@ -1,0 +1,29 @@
+<%= form_for(@query_sequence) do |f| %>
+  <% if @query_sequence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@query_sequence.errors.count, "error") %> prohibited this query_sequence from being saved:</h2>
+
+      <ul>
+      <% @query_sequence.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :sequence %><br />
+    <%= f.text_area :sequence %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
