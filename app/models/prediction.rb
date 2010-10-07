@@ -39,8 +39,6 @@ class Prediction < ActiveRecord::Base
       seq   = $2
       code  = code.chomp
       seq   = seq.chomp.gsub('-', '').gsub('.', '').gsub(/\s+/, '')
-    else
-      raise "Invalid FASTA format"
     end
   end
 

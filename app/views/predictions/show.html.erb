@@ -3,7 +3,7 @@
 <% if @prediction.finished_at.nil? %>
   <meta http-equiv="refresh" content="10"/>
   Status: <%=h @prediction.status %> ...
-  <ul>
+  <ul class="black_link">
     <li>This page will refresh every 10 secs. Please be patient.
     <li>You can leave this page and check results later from <br /><%=link_to prediction_url(@prediction) %>
   </ul>
@@ -37,6 +37,6 @@
   <% end %>
   <table>
   </p>
+  <br>
   <%= link_to 'New Prediction', new_prediction_path %>
 <% end %>
-<br>

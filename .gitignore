@@ -7,3 +7,4 @@ db/essts
 db/svm
 log/*.log
 tmp/**/*
+tmp/restart.txt
