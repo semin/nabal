@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<% if @prediction.finished_at.nil? %>
+  <meta http-equiv="refresh" content="10"/>
+  Status: <%=h @prediction.status %> ...
+  <ul>
+    <li>This page will refresh every 10 secs. Please be patient.
+    <li>You can leave this page and check results later from <br /><%=link_to prediction_url(@prediction) %>
+  </ul>
+<% else %>
+  <p>
+  <b>MODE:</b>
+  <%= @prediction.mode %>-binding site prediction
+  </p>
+
+  <p>
+  <b>INPUT:</b>
+  <pre><%= @prediction.fasta %></pre>
+  </p>
+
+  <p>
+  <b>PREDICTION:</b>
+  <table class="nabal">
+    <tr>
+      <th>No</th>
+      <th>AA</th>
+      <th>Label</th>
+      <th>Probability</th>
+    </tr>
+  <% @prediction.binding_sites.each_with_index do |res, ri| %>
+    <tr>
+      <td><%= ri + 1 %></td>
+      <td><%= @prediction.aaseq[ri] %></td>
+      <td><%= res[0] == '1' ? "Binding" : "Non-binding" %></td>
+      <td><%= res[0] == '1' ? res[1] : res[2] %></td>
+    </tr>
+  <% end %>
+  <table>
+  </p>
+  <%= link_to 'New Prediction', new_prediction_path %>
+<% end %>
+<br>

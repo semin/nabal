@@ -1,0 +1,30 @@
+<h2>Listing predictions</h2>
+
+<table class="nabal">
+  <tr>
+    <th>Mode</th>
+    <th>Fasta</th>
+    <th>Uuid</th>
+    <th>Started at</th>
+    <th>Finished at</th>
+    <th>Elapsed time</th>
+    <th>Status</th>
+    <th>Menu</th>
+  </tr>
+
+<% @predictions.each do |prediction| %>
+  <tr>
+    <td><%= prediction.mode %></td>
+    <td><%= prediction.fasta %></td>
+    <td><%= prediction.uuid %></td>
+    <td><%= prediction.started_at %></td>
+    <td><%= prediction.finished_at %></td>
+    <td><%= prediction.elapsed_time %></td>
+    <td><%= prediction.status %></td>
+    <td>
+      <%= link_to 'Show', prediction %><br/>
+      <%= link_to 'Destroy', prediction, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

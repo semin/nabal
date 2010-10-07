@@ -1,0 +1,55 @@
+html, body { 
+  border: 0px;
+  text-align: justify;
+}
+
+body {
+  color: #000;
+  background: #FFF;
+  font-family: Time New Roman, Times, sans-serif;
+  font-size: 100%;
+}
+
+div.black_link a {
+  color: #000;
+  background-color: #FFF;
+}
+
+div.black_link a:link, a:visited {
+  color: #000;
+  background-color: #FFF;
+  text-decoration: none;
+}
+
+div.black_link a:hover, a:active {
+  color: #000;
+  background-color: #FFF;
+  text-decoration: underline;
+}
+
+div#footer_banner {
+  margin-top: 5px;
+}
+
+table.nabal {
+  width: auto;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+
+table.nabal th {
+  font-size: 95%;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #666666;
+}
+
+table.nabal td {
+  font-size: 92%;
+  padding: 5px;
+  border: 1px solid #666666;
+}

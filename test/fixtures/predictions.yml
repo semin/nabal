@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fasta: MyText
+  uuid: MyString
+  started_at: 2010-10-05 11:33:19
+  finished_at: 2010-10-05 11:33:19
+  elapsed_time: 1.5
+  status: MyString
+
+two:
+  fasta: MyText
+  uuid: MyString
+  started_at: 2010-10-05 11:33:19
+  finished_at: 2010-10-05 11:33:19
+  elapsed_time: 1.5
+  status: MyString

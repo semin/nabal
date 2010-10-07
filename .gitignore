@@ -1,4 +1,9 @@
 .bundle
+*.swp
+*.log
 db/*.sqlite3
+db/blastdb
+db/essts
+db/svm
 log/*.log
 tmp/**/*

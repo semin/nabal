@@ -1,0 +1,26 @@
+<%= form_for(@prediction) do |f| %>
+  <% if @prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+
+      <ul>
+      <% @prediction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b>MODE:</b> <%= select_tag "mode", options_for_select(["DNA", "RNA"]) %>-binding site prediction
+  </div>
+
+  <div class="field">
+    <b>INPUT (FASTA format):</b><br/>
+    <%= f.text_area :fasta %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
