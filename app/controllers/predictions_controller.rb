@@ -18,7 +18,7 @@ class PredictionsController < ApplicationController
         format.html
       end
     else
-      redirect_to "/"
+      redirect_to "/nabal"
     end
   end
 
@@ -33,7 +33,7 @@ class PredictionsController < ApplicationController
   def create
     @prediction         = Prediction.new(params[:prediction])
     @prediction.mode    = params[:mode]
-    @prediction.uuid    = UUIDTools::UUID.timestamp_create
+    @prediction.uuid    = UUIDTools::UUID.timestamp_create.to_s
     @prediction.status  = "Standing by"
 
     respond_to do |format|

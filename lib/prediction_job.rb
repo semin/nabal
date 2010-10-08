@@ -23,7 +23,7 @@ class PredictionJob < Struct.new(:prediction_id)
     blast_pssm  = blast_dir.join("#{stem}.pssm")
     blast_in    = blast_dir.join("#{stem}.fa")
     blast_in.open('w') { |f| f.puts pred.fasta }
-    blast_cmd   = "#{blast_bin} -i #{blast_in} -o #{blast_out} -d #{blast_db} -j 3 -s T -u 1 -J T -Q #{blast_pssm}"
+    blast_cmd   = "#{blast_bin} -i #{blast_in} -o #{blast_out} -d #{blast_db} -a 4 -j 3 -s T -u 1 -J T -Q #{blast_pssm}"
     system blast_cmd
 
     # * Create a libsvm compatible input file
@@ -104,5 +104,6 @@ class PredictionJob < Struct.new(:prediction_id)
     pred.elapsed_time = pred.finished_at - pred.started_at
     pred.status       = 'Finished'
     pred.save!
+
   end
 end

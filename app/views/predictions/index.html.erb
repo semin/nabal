@@ -15,7 +15,7 @@
 <% @predictions.each do |prediction| %>
   <tr>
     <td><%= prediction.mode %></td>
-    <td><%= prediction.fasta %></td>
+    <td><pre><%= prediction.fasta %></pre></td>
     <td><%= prediction.uuid %></td>
     <td><%= prediction.started_at %></td>
     <td><%= prediction.finished_at %></td>
