@@ -1,7 +1,7 @@
 class CreatePredictions < ActiveRecord::Migration
   def self.up
     create_table :predictions do |t|
-      t.text      :fasta
+      t.text      :sequence
       t.text      :prediction
       t.string    :uuid
       t.string    :mode

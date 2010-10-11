@@ -22,7 +22,7 @@ class PredictionJob < Struct.new(:prediction_id)
     blast_out   = blast_dir.join("#{stem}.blast")
     blast_pssm  = blast_dir.join("#{stem}.pssm")
     blast_in    = blast_dir.join("#{stem}.fa")
-    blast_in.open('w') { |f| f.puts pred.fasta }
+    blast_in.open('w') { |f| f.puts pred.sequence }
     blast_cmd   = "#{blast_bin} -i #{blast_in} -o #{blast_out} -d #{blast_db} -a 4 -j 3 -s T -u 1 -J T -Q #{blast_pssm}"
     system blast_cmd
 
@@ -50,7 +50,7 @@ class PredictionJob < Struct.new(:prediction_id)
 
     svm_in = Rails.root.join("tmp/svm/#{stem}.svm_in")
     svm_in.open('w') do |file|
-      ress = Bio::FastaFormat.new(pred.fasta).aaseq.split('')
+      ress = Bio::FastaFormat.new(pred.sequence).aaseq.split('')
       ress.each_with_index do |res, ri|
 
         seq_features = (-rad..rad).map { |dist|

@@ -8,10 +8,8 @@ class Prediction < ActiveRecord::Base
 
   include ActiveModel::Validations
 
-  validates :uuid,  :presence => true, :uniqueness => true
-  validates :fasta, :presence => true, :fasta => true
-
-  after_validation :sanitize_fasta
+  validates :uuid,      :presence => true, :uniqueness  => true
+  validates :sequence,  :presence => true, :fasta       => true
 
   def to_param
     self.uuid
@@ -28,18 +26,7 @@ class Prediction < ActiveRecord::Base
   end
 
   def aaseq
-    @aaseq ||= Bio::FastaFormat.new(fasta).aaseq
-  end
-
-  private
-
-  def sanitize_fasta
-    if fasta =~ /^>(.*?)$(.*)/
-      code  = $1
-      seq   = $2
-      code  = code.chomp
-      seq   = seq.chomp.gsub('-', '').gsub('.', '').gsub(/\s+/, '')
-    end
+    @aaseq ||= Bio::FastaFormat.new(sequence).aaseq
   end
 
 end

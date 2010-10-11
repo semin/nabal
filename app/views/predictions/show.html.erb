@@ -2,7 +2,7 @@
 
 <% if @prediction.finished_at.nil? %>
   <meta http-equiv="refresh" content="10"/>
-  Status: <%=h @prediction.status %> ...
+  Status: <font color="blue"><%=h @prediction.status %> ...</font>
   <ul class="black_link">
     <li>This page will refresh every 10 secs. Please be patient.
     <li>You can leave this page and check results later from <br /><%=link_to prediction_url(@prediction) %>
@@ -15,7 +15,7 @@
 
   <p>
   <b>Protein Sequence:</b>
-    <pre><%= @prediction.fasta %></pre>
+    <pre><%= @prediction.sequence %></pre>
   </p>
 
   <p>
