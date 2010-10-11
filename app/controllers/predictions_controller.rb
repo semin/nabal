@@ -12,7 +12,7 @@ class PredictionsController < ApplicationController
   end
 
   def show
-    @prediction = Prediction.find_by_uuid(params[:id])
+    @prediction = Prediction.first(:conditions => { :uuid => params[:id] })
 
     if @prediction
       respond_to do |format|
